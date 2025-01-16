@@ -74,6 +74,7 @@ import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { NAVIGATION } from './Navigation';
 import { useState, useMemo } from 'react';
 import MyAccount from '../pages/myAccount/MyAccount';
+import Footer from './Footer';
 
 const demoTheme = createTheme({
     cssVariables: {
@@ -119,6 +120,7 @@ function DashboardLayoutAccountSidebar() {
             <DashboardLayout>
                 {/* <DemoPageContent pathname={pathname} /> */}
                 <MyAccount />
+                <Footer />
             </DashboardLayout>
         </AppProvider>
     );

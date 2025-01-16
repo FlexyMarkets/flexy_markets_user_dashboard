@@ -3,7 +3,7 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 import { Stack } from '@mui/material';
 
-function Toggle({ margine, items }) {
+function Toggle({ toggleButtonSx, items, toggleButtonGroupSx, stackSx }) {
     const [alignment, setAlignment] = useState('web');
 
     const handleChange = (event, newAlignment) => {
@@ -11,18 +11,18 @@ function Toggle({ margine, items }) {
     };
 
     return (
-        <Stack borderBottom={"1px solid black"}>
+        <Stack sx={stackSx}>
             <ToggleButtonGroup
                 color="primary"
                 value={alignment}
                 exclusive
                 onChange={handleChange}
                 aria-label="Platform"
-                sx={{ mt: { margine }, color: "#989c9e" }}
+                sx={{ color: "#989c9e", ...toggleButtonGroupSx }}
             >
                 {
                     items?.map((item, i) => (
-                        <ToggleButton value="Real" sx={{ textTransform: "capitalize", border: "none", fontSize: "1rem" }} key={i}>{item}</ToggleButton>
+                        <ToggleButton value="Real" sx={{ textTransform: "capitalize", fontSize: "1rem", ...toggleButtonSx }} key={i}>{item}</ToggleButton>
                     ))
                 }
             </ToggleButtonGroup>

@@ -4,29 +4,34 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 
-function Selector() {
-    const [age, setAge] = useState('');
+function Selector({ items }) {
+    const [accountType, setAccountType] = useState('');
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setAccountType(event.target.value);
     };
 
     return (
-        <FormControl sx={{ mt: 3, minWidth: 200 }} size="small">
-            <InputLabel id="demo-select-small-label">Age</InputLabel>
+        <FormControl sx={{ minWidth: 200 }} size="small">
+            <InputLabel id="demo-select-small-label">Account Type</InputLabel>
             <Select
                 labelId="demo-select-small-label"
                 id="demo-select-small"
-                value={age}
-                label="Age"
+                value={accountType}
+                label="Account Type"
                 onChange={handleChange}
             >
                 <MenuItem value="">
                     <em>None</em>
                 </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
+                {
+                    items.map((item, i) => (
+                        <MenuItem value={item} key={i}>{item}</MenuItem>
+                    ))
+                }
+                {/* <MenuItem value={10}>Ten</MenuItem>
                 <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem> */}
             </Select>
         </FormControl>
     );
