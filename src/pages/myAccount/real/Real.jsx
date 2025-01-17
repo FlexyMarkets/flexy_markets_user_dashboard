@@ -1,18 +1,13 @@
 import { Stack, Typography, Button } from "@mui/material";
-import Toggle from "../../../components/Toggle";
-import Selector from "../../../components/Selector";
-import ViewListIcon from '@mui/icons-material/ViewList';
-import ViewModuleIcon from '@mui/icons-material/ViewModule';
-import { Icon } from '@iconify/react';
+import AccountDetailsAccordian from "../accountDetailsAccordian/AccountDetailsAccordian"
+import { realAccountDetailsData, realAccountDetailsID, totalAmountAndButtons } from "./realAccountDetailsData";
+import AccountTypeAndPattern from "../AccountTypeAndPattern";
 
 function Real() {
     return (
         <Stack>
-            <Stack sx={{ flexDirection: "row", flexWrap: "wrap", alignItems: "center", gap: "1rem", justifyContent: "space-between", mt: "2rem" }}>
-                <Selector items={["Newest", "Oldest", "Free margin", "Nickname"]} />
-                <Toggle items={[<ViewListIcon />, <ViewModuleIcon />]} />
-            </Stack>
-            <Stack sx={{ minHeight: "50vh", mt: "2rem", justifyContent: "center", alignItems: "center", gap: "1rem" }}>
+            <AccountTypeAndPattern />
+            {/* <Stack sx={{ minHeight: "50vh", mt: "2rem", justifyContent: "center", alignItems: "center", gap: "1rem" }}>
                 <Icon
                     icon="mingcute:empty-box-line"
                     height="5rem"
@@ -23,7 +18,12 @@ function Real() {
                 <Button variant="contained" sx={{ textTransform: "capitalize", bgcolor: "#17433d", color: "white", boxShadow: "none", px: "1.5rem" }}>
                     Open New Account
                 </Button>
-            </Stack>
+            </Stack> */}
+            <AccountDetailsAccordian
+                accountDetailsData={realAccountDetailsData}
+                accountDetailsID={realAccountDetailsID}
+                totalAmountAndButtons={totalAmountAndButtons}
+            />
         </Stack>
     )
 }
