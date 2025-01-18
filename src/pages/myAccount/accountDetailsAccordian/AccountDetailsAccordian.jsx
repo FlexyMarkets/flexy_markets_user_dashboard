@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, Stack, Box, Divider } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
+import ModalBox from '../../../components/ModalBox';
 
 
 function AccountDetailsAccordian({ accountDetailsData, accountDetailsID, totalAmountAndButtons }) {
@@ -76,16 +77,16 @@ function AccountDetailsAccordian({ accountDetailsData, accountDetailsID, totalAm
                             direction="row"
                             alignItems="center"
                             justifyContent="space-between"
+                            flexWrap="wrap"
                         >
                             <Typography variant="h4" fontWeight={"700"}>
                                 {totalAmountAndButtons[0].total}.91 USD
                             </Typography>
-                            <Stack direction="row" spacing={1}>
+                            <Stack direction="row" flexWrap="wrap" spacing={1}>
                                 {totalAmountAndButtons[1].buttons.map((btn, i) => (
                                     <Button
                                         key={i}
                                         variant="contained"
-                                        startIcon={btn.name && btn.icon}
                                         sx={{
                                             textTransform: "capitalize",
                                             bgcolor: !i ? "#17433d" : "#f3f5f7",
@@ -94,7 +95,7 @@ function AccountDetailsAccordian({ accountDetailsData, accountDetailsID, totalAm
                                             minWidth: i === 2 ? "2.5rem" : "auto",
                                         }}
                                     >
-                                        {btn.name ? btn.name : btn.icon}
+                                        {btn.name ? (btn.modal ? <ModalBox startIcon={btn.name && btn.icon} btnName={btn.name} btnSx={{ color: !i ? "white" : "black", }} /> : btn.name) : btn.icon}
                                     </Button>
                                 ))}
                             </Stack>
