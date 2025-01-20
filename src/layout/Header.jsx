@@ -1,10 +1,11 @@
+import { Routes, Route } from 'react-router-dom';
 import { createTheme } from '@mui/material/styles';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { NAVIGATION } from './Navigation';
 import { useState, useMemo } from 'react';
 import MyAccount from '../pages/myAccount/MyAccount';
-import { useMediaQuery } from '@mui/material';
+import Deposit from '../pages/deposit/Deposit';
 import Footer from './Footer';
 
 const demoTheme = createTheme({
@@ -26,8 +27,6 @@ const demoTheme = createTheme({
 function DashboardLayoutAccountSidebar() {
 
     const [pathname, setPathname] = useState('/dashboard');
-
-    const isMobile = useMediaQuery('(max-width:900px)');
 
     const router = useMemo(() => {
         return {
@@ -53,8 +52,12 @@ function DashboardLayoutAccountSidebar() {
             <DashboardLayout
                 sidebarExpandedWidth={290}
             >
+                <Routes>
+                    {/* <Route path="/" element={<MyAccount />} /> */}
+                    <Route path="/" element={<Deposit />} />
+                </Routes>
                 {/* <DemoPageContent pathname={pathname} /> */}
-                <MyAccount />
+                {/* <MyAccount /> */}
                 <Footer />
             </DashboardLayout>
         </AppProvider >

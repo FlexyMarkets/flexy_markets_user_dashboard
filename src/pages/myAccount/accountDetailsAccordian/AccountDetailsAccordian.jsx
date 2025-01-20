@@ -3,9 +3,9 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Button, Stack, Box, Divider } from '@mui/material';
+import { Button, Stack, Divider } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
-import ModalBox from '../../../components/ModalBox';
+import TradeModalBox from "../../../components/TradeModalBox"
 
 
 function AccountDetailsAccordian({ accountDetailsData, accountDetailsID, totalAmountAndButtons }) {
@@ -17,6 +17,7 @@ function AccountDetailsAccordian({ accountDetailsData, accountDetailsID, totalAm
                     boxShadow: "none",
                     p: "1rem",
                     border: "1px solid #afb5b9",
+                    borderRadius: '.8rem !important'
                 }}
             >
                 <Stack gap=".7rem">
@@ -85,6 +86,7 @@ function AccountDetailsAccordian({ accountDetailsData, accountDetailsID, totalAm
                             <Stack direction="row" flexWrap="wrap" spacing={1}>
                                 {totalAmountAndButtons[1].buttons.map((btn, i) => (
                                     <Button
+                                        startIcon={(!btn.modal && btn.name) && btn.icon}
                                         key={i}
                                         variant="contained"
                                         sx={{
@@ -95,7 +97,25 @@ function AccountDetailsAccordian({ accountDetailsData, accountDetailsID, totalAm
                                             minWidth: i === 2 ? "2.5rem" : "auto",
                                         }}
                                     >
-                                        {btn.name ? (btn.modal ? <ModalBox startIcon={btn.name && btn.icon} btnName={btn.name} btnSx={{ color: !i ? "white" : "black", }} /> : btn.name) : btn.icon}
+                                        {
+                                            btn.name
+                                                ?
+                                                (
+                                                    btn.modal
+                                                        ?
+                                                        <TradeModalBox
+                                                            startIcon={btn.name && btn.icon}
+                                                            btnName={btn.name}
+                                                            btnSx={{
+                                                                color: !i ? "white" : "black",
+
+                                                            }}
+                                                        />
+                                                        :
+                                                        btn.name)
+                                                :
+                                                btn.icon
+                                        }
                                     </Button>
                                 ))}
                             </Stack>

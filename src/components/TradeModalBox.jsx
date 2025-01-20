@@ -9,14 +9,14 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 550,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  borderRadius: ".5rem",
   boxShadow: 24,
   p: 4,
 };
 
-function ModalBox({ btnName, btnSx, startIcon }) {
+function TradeModalBox({ btnName, btnSx, startIcon }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -42,8 +42,8 @@ function ModalBox({ btnName, btnSx, startIcon }) {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={style}>
-          <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
-            Text in a modal
+          <Typography id="keep-mounted-modal-title" variant="h5" fontWeight={"700"} fontSize={"1.7rem"}>
+            {btnName}
           </Typography>
           <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
@@ -54,4 +54,4 @@ function ModalBox({ btnName, btnSx, startIcon }) {
   );
 }
 
-export default ModalBox;
+export default TradeModalBox;

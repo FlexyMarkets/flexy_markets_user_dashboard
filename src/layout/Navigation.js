@@ -4,7 +4,7 @@ import { Icon } from '@iconify/react';
 
 export const NAVIGATION = [
     {
-        segment: 'myAccounts',
+        segment: '/',
         title: 'My accounts',
         icon: <DashboardIcon />,
     },

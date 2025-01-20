@@ -36,7 +36,7 @@ function MyAccount() {
                     sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: "1rem", alignItems: "center", justifyContent: "space-between" }}
                 >
                     <Typography sx={{ fontSize: "2rem", fontWeight: "700" }}>My accounts</Typography>
-                    <Button variant="contained" startIcon={<AddIcon />} sx={{ textTransform: "capitalize", bgcolor: "#f3f5f7", color: "black", boxShadow: "none", px: "1.5rem" }}>
+                    <Button variant="contained" startIcon={<AddIcon />} sx={{ textTransform: "capitalize", bgcolor: "#f3f5f7", color: "black", boxShadow: "none !important", px: "1.5rem" }}>
                         Open New Account
                     </Button>
                 </Stack>

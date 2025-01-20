@@ -31,15 +31,18 @@ export const totalAmountAndButtons = [
         buttons: [
             {
                 name: "Trade",
-                icon: <Icon icon="material-symbols-light:candlestick-chart-outline-rounded" />
+                icon: <Icon icon="material-symbols-light:candlestick-chart-outline-rounded" />,
+                modal: true
             },
             {
-                name: "Set Balance",
-                icon: <ArrowCircleDownIcon />
+                name: "Deposit",
+                icon: <ArrowCircleDownIcon />,
+                modal: false
             },
             {
                 name: "Withdraw",
-                icon: <ArrowCircleDownIcon />
+                icon: <ArrowCircleDownIcon />,
+                modal: false
             },
             {
                 icon: <MoreVertIcon />

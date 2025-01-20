@@ -41,7 +41,7 @@ export const totalAmountAndButtons = [
             },
             {
                 icon: <MoreVertIcon />,
-                modal: true
+                // modal: true
             }
         ]
     }
